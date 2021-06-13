@@ -11,7 +11,9 @@ import RomanNumerals
     ("one digit", 'C', 100),
     ("one digit", 'D', 500),
     ("one digit", 'M', 1000),
-    ("two digits", 'II', 2)
+    ("two digits", 'II', 2),
+    ("two digits", 'XX', 20)
+
 ])
 def test_from_roman(comment, test_value, expected_value):
     assert RomanNumerals.from_roman(test_value) == expected_value
