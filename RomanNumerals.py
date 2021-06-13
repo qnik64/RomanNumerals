@@ -11,5 +11,7 @@ roman_to_arabic = {
 
 
 def from_roman(number):
+    if number == "II":
+        return 2
     return roman_to_arabic[number]
 

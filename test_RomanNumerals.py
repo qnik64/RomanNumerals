@@ -3,14 +3,15 @@ import pytest
 import RomanNumerals
 
 
-@pytest.mark.parametrize("test_value, expected_value", [
-    ('I', 1),
-    ('V', 5),
-    ('X', 10),
-    ('L', 50),
-    ('C', 100),
-    ('D', 500),
-    ('M', 1000)
+@pytest.mark.parametrize("comment, test_value, expected_value", [
+    ("one digit", 'I', 1),
+    ("one digit", 'V', 5),
+    ("one digit", 'X', 10),
+    ("one digit", 'L', 50),
+    ("one digit", 'C', 100),
+    ("one digit", 'D', 500),
+    ("one digit", 'M', 1000),
+    ("two digits", 'II', 2)
 ])
-def test_from_roman(test_value, expected_value):
+def test_from_roman(comment, test_value, expected_value):
     assert RomanNumerals.from_roman(test_value) == expected_value
