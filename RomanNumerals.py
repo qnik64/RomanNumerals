@@ -1,6 +1,5 @@
 roman_to_arabic = {
     'I': 1,
-    'I': 1,
     'V': 5,
     'X': 10,
     'L': 50,
@@ -10,8 +9,11 @@ roman_to_arabic = {
 }
 
 
-def from_roman(number):
-    if len(number) > 1 and number[0] == 'I' and number[1] != 'I':
-        return roman_to_arabic[number[1]] - 1
-    return sum(roman_to_arabic[digit] for digit in number)
+def is_smaller(d1, d2):
+    return roman_to_arabic[d1] - roman_to_arabic[d2] < 0
 
+
+def from_roman(number):
+    if len(number) > 1 and is_smaller(number[0], number[1]):
+        return roman_to_arabic[number[1]] - roman_to_arabic[number[0]]
+    return sum(roman_to_arabic[digit] for digit in number)

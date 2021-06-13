@@ -20,7 +20,16 @@ import RomanNumerals
 
     ("mixed order", 'IV', 4),
     ("mixed order", 'IX', 9),
+    ("mixed order", 'CD', 400),
 
 ])
 def test_from_roman(comment, test_value, expected_value):
     assert RomanNumerals.from_roman(test_value) == expected_value
+
+
+def test_is_smaller_should_return_True():
+    assert RomanNumerals.is_smaller('I', 'V') == True
+
+
+def test_is_smaller_should_return_False():
+    assert RomanNumerals.is_smaller('D', 'C') == False
