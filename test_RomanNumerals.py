@@ -19,6 +19,7 @@ import RomanNumerals
     ("mixed two digits", 'MMXXI', 2021),
 
     ("mixed order", 'IV', 4),
+    ("mixed order", 'IX', 9),
 
 ])
 def test_from_roman(comment, test_value, expected_value):
