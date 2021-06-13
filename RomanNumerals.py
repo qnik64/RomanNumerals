@@ -11,5 +11,5 @@ roman_to_arabic = {
 
 
 def from_roman(number):
-    return roman_to_arabic[number[0]] * len(number)
+    return sum(roman_to_arabic[digit] for digit in number)
 
