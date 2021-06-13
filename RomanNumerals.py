@@ -14,6 +14,12 @@ def is_smaller(d1, d2):
 
 
 def from_roman(number):
-    if len(number) > 1 and is_smaller(number[0], number[1]):
-        return roman_to_arabic[number[1]] - roman_to_arabic[number[0]]
-    return sum(roman_to_arabic[digit] for digit in number)
+    ret_val = 0
+    for i in range(len(number)-1):
+        if is_smaller(number[i], number[i+1]):
+            ret_val -= roman_to_arabic[number[i]]
+        else:
+            ret_val += roman_to_arabic[number[i]]
+    ret_val += roman_to_arabic[number[len(number)-1]]
+
+    return ret_val
