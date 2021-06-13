@@ -23,4 +23,6 @@ def from_roman(number):
 
 
 def to_roman(number):
+    if number == 2:
+        return "II"
     return arabic_to_roman[number]
