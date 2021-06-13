@@ -10,6 +10,7 @@ roman_to_arabic = {
 
 arabic_to_roman = {a: r for r, a in roman_to_arabic.items()}
 
+
 def from_roman(number):
     converted = [roman_to_arabic[d] for d in number]
     ret_val = converted[-1]
@@ -22,10 +23,16 @@ def from_roman(number):
     return ret_val
 
 
-def to_roman(number):
-    for i in range(1,4):
-        try:
-            return i * arabic_to_roman[number/i]
-        except KeyError:
-            pass
+def find_max_roman_digit_smaller_than(num):
+    for r, a in reversed(roman_to_arabic.items()):
+        if a <= num:
+            return r
 
+
+def to_roman(number):
+    ret_val = []
+    while number > 0:
+        f = find_max_roman_digit_smaller_than(number)
+        ret_val.append(f)
+        number -= roman_to_arabic[f]
+    return "".join(ret_val)
