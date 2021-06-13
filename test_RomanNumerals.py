@@ -3,14 +3,6 @@ import pytest
 import RomanNumerals
 
 
-def test_is_smaller_should_return_True():
-    assert RomanNumerals.is_smaller('I', 'V')
-
-
-def test_is_smaller_should_return_False():
-    assert not RomanNumerals.is_smaller('D', 'C')
-
-
 @pytest.mark.parametrize("comment, test_value, expected_value", [
     ("one digit", 'I', 1),
     ("one digit", 'V', 5),

@@ -9,17 +9,13 @@ roman_to_arabic = {
 }
 
 
-def is_smaller(d1, d2):
-    return roman_to_arabic[d1] - roman_to_arabic[d2] < 0
-
-
 def from_roman(number):
-    ret_val = 0
-    for current_digit, next_digit in zip(number[:-1], number[1:]):
-        if is_smaller(current_digit, next_digit):
-            ret_val -= roman_to_arabic[current_digit]
+    converted = [roman_to_arabic[d] for d in number]
+    ret_val = converted[-1]
+    for current_digit, next_digit in zip(converted[:-1], converted[1:]):
+        if current_digit < next_digit:
+            ret_val -= current_digit
         else:
-            ret_val += roman_to_arabic[current_digit]
-    ret_val += roman_to_arabic[number[-1]]
+            ret_val += current_digit
 
     return ret_val
