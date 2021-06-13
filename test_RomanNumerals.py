@@ -2,8 +2,7 @@ import pytest
 
 import RomanNumerals
 
-
-@pytest.mark.parametrize("comment, test_value, expected_value", [
+testing_values = [
     ("one digit", 'I', 1),
     ("one digit", 'V', 5),
     ("one digit", 'X', 10),
@@ -25,7 +24,14 @@ import RomanNumerals
     ("mixed order", 'XLI', 41),
 
     ("combo", 'MMCMLXXXIV', 2984)
+]
 
-])
+
+@pytest.mark.parametrize("comment, test_value, expected_value", testing_values)
 def test_from_roman(comment, test_value, expected_value):
     assert RomanNumerals.from_roman(test_value) == expected_value
+
+
+@pytest.mark.parametrize("comment, expected_value, test_value", testing_values[:1])
+def test_to_roman(comment, test_value, expected_value):
+    assert RomanNumerals.to_roman(test_value) == expected_value
