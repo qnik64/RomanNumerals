@@ -14,8 +14,6 @@ roman_to_arabic = {
     'M': 1000
 }
 
-arabic_to_roman = {a: r for r, a in roman_to_arabic.items()}
-
 
 def from_roman(number):
     converted = [roman_to_arabic[d] for d in number]
