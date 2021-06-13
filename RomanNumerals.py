@@ -29,13 +29,12 @@ def from_roman(number):
     return ret_val
 
 
-def find_max_roman_digit_smaller_than(num):
-    for r, a in reversed(roman_to_arabic.items()):
-        if a <= num:
-            return r
-
-
 def to_roman(number):
+    def find_max_roman_digit_smaller_than(num):
+        for r, a in reversed(roman_to_arabic.items()):
+            if a <= num:
+                return r
+
     ret_val = []
     while number > 0:
         f = find_max_roman_digit_smaller_than(number)
