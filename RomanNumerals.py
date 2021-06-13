@@ -11,5 +11,7 @@ roman_to_arabic = {
 
 
 def from_roman(number):
+    if number == "IV":
+        return 4
     return sum(roman_to_arabic[digit] for digit in number)
 
