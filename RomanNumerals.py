@@ -15,11 +15,11 @@ def is_smaller(d1, d2):
 
 def from_roman(number):
     ret_val = 0
-    for i in range(len(number)-1):
-        if is_smaller(number[i], number[i+1]):
-            ret_val -= roman_to_arabic[number[i]]
+    for current_digit, next_digit in zip(number[:-1], number[1:]):
+        if is_smaller(current_digit, next_digit):
+            ret_val -= roman_to_arabic[current_digit]
         else:
-            ret_val += roman_to_arabic[number[i]]
-    ret_val += roman_to_arabic[number[len(number)-1]]
+            ret_val += roman_to_arabic[current_digit]
+    ret_val += roman_to_arabic[number[-1]]
 
     return ret_val
