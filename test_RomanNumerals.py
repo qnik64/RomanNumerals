@@ -1,9 +1,12 @@
+import pytest
+
 import RomanNumerals
 
 
-def test_RomanNumerals_can_convert_I():
-    assert RomanNumerals.from_roman('I') == 1
-
-
-def test_RomanNumerals_can_convert_V():
-    assert RomanNumerals.from_roman('V') == 5
+@pytest.mark.parametrize("test_value, expected_value", [
+    ('I', 1),
+    ('V', 5),
+    ('X', 10)
+])
+def test_from_roman(test_value, expected_value):
+    assert RomanNumerals.from_roman(test_value) == expected_value
