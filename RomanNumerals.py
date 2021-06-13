@@ -23,8 +23,9 @@ def from_roman(number):
 
 
 def to_roman(number):
-    try:
-        return arabic_to_roman[number]
-    except KeyError:
-        return 2 * arabic_to_roman[number/2]
+    for i in range(1,4):
+        try:
+            return i * arabic_to_roman[number/i]
+        except KeyError:
+            pass
 
