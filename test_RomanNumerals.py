@@ -32,6 +32,6 @@ def test_from_roman(comment, test_value, expected_value):
     assert RomanNumerals.from_roman(test_value) == expected_value
 
 
-@pytest.mark.parametrize("comment, expected_value, test_value", testing_values[:8])
+@pytest.mark.parametrize("comment, expected_value, test_value", testing_values[:9])
 def test_to_roman(comment, test_value, expected_value):
     assert RomanNumerals.to_roman(test_value) == expected_value

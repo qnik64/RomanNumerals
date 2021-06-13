@@ -23,6 +23,8 @@ def from_roman(number):
 
 
 def to_roman(number):
-    if number == 2:
-        return "II"
-    return arabic_to_roman[number]
+    try:
+        return arabic_to_roman[number]
+    except KeyError:
+        return 2 * arabic_to_roman[number/2]
+
